@@ -2,7 +2,7 @@ package com.cognitio.api.model.alunos;
 
 import com.cognitio.api.model.endereco.DadosEndereco;
 
-public record DadosCadastroAlunos(String nome, String email, DadosEndereco Endereco) {
+public record DadosCadastroAlunos(String nome, String email, DadosEndereco endereco) {
     
 }
     

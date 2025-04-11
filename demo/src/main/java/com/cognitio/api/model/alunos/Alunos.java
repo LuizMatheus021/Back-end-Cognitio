@@ -33,7 +33,7 @@ public class Alunos {
     public Alunos(DadosCadastroAlunos dados){
         this.nome = dados.nome();
         this.email = dados.email();    
-        this.endereco = new Endereco(dados.Endereco());
+        this.endereco = new Endereco(dados.endereco());
     }
 
     public void atualizarInformacoes(DadosAtualizacaoAlunos dados) {    

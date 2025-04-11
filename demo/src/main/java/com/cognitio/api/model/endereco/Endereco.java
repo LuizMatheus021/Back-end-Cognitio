@@ -18,6 +18,7 @@ public class Endereco {
     private String numero;
     private String uf;
     private String cidade;
+    
 
     public Endereco(DadosEndereco dados){
         this.cep = dados.cep();
