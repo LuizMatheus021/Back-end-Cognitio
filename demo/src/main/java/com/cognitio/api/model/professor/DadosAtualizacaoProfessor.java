@@ -1,0 +1,5 @@
+package com.cognitio.api.model.professor;
+
+public record DadosAtualizacaoProfessor(Integer id,String nome, String email, String curso) {
+
+}
