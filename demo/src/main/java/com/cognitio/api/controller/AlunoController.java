@@ -1,5 +1,6 @@
 package com.cognitio.api.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,40 +9,39 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
-import com.cognitio.api.model.alunos.Alunos;
-import com.cognitio.api.model.alunos.AlunosRepository;
-import com.cognitio.api.model.alunos.DadosAtualizacaoAlunos;
-import com.cognitio.api.model.alunos.DadosCadastroAlunos;
+import com.cognitio.api.model.alunos.Aluno;
+import com.cognitio.api.model.alunos.AlunoRepository;
+import com.cognitio.api.model.alunos.DadosAtualizacaoAluno;
+import com.cognitio.api.model.alunos.DadosCadastroAluno;
 
 
 
 @RestController 
+@Controller
 @RequestMapping("/alunos")  
 
-public class AlunosController {
+public class AlunoController {
     
     @Autowired
-    private AlunosRepository alunosRepository; 
+    private AlunoRepository alunoRepository; 
     @PostMapping
     @Transactional
-    public void cadastrar(@RequestBody DadosCadastroAlunos dados) {
-        alunosRepository.save(new Alunos(dados));
-            
+    public void cadastrar(@RequestBody DadosCadastroAluno dados) {
+        alunoRepository.save(new Aluno(dados));
     }
-    
     @PutMapping
     @Transactional
-    public void atualizar(@RequestBody DadosAtualizacaoAlunos dados) {
-        var alunos = alunosRepository.getReferenceById(dados.id());
+    public void atualizar(@RequestBody DadosAtualizacaoAluno dados) {
+        var alunos = alunoRepository.getReferenceById(dados.id());
         alunos.atualizarInformacoes(dados);
     }
     
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable Integer id) {
-        var alunos = alunosRepository.getReferenceById(id);
-        alunosRepository.delete(alunos);
+        var aluno = alunoRepository.getReferenceById(id);
+        alunoRepository.delete(aluno);
     }
+
     
 }
-//O GetMapping serve para listar as informações de cada model
