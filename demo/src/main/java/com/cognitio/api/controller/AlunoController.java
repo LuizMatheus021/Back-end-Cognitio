@@ -18,7 +18,7 @@ import com.cognitio.api.model.alunos.DadosCadastroAluno;
 
 @RestController 
 @Controller
-@RequestMapping("/alunos")  
+@RequestMapping("/aluno")  
 
 public class AlunoController {
     
