@@ -33,13 +33,11 @@ public class ConfiguracoesSeguranca {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) 
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/usuarios/login", "/api/usuarios/cadastro").permitAll()
                         .anyRequest().authenticated())
-                .formLogin(form -> form
-                        .loginPage("/login") 
-                        .permitAll())
+                .formLogin(form -> form.permitAll()) // Tela de login padrão do Spring
                 .logout(logout -> logout.permitAll());
 
         return http.build();
