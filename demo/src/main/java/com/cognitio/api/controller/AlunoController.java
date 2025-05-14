@@ -19,11 +19,11 @@ import com.cognitio.api.model.alunos.DadosCadastroAluno;
 @RestController 
 @Controller
 @RequestMapping("/aluno")  
-
 public class AlunoController {
     
     @Autowired
     private AlunoRepository alunoRepository; 
+
     @PostMapping
     @Transactional
     public void cadastrar(@RequestBody DadosCadastroAluno dados) {

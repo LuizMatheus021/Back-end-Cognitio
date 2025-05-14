@@ -4,8 +4,6 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-import com.cognitio.api.model.endereco.Endereco;
-
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +16,7 @@ import jakarta.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity 
-@Table(name = "aluno")
+@Table(name = "alunos")
 public class Aluno {
 
     @Id
@@ -33,8 +31,8 @@ public class Aluno {
     private String dataDeNascimento;
     
 
-    @Embedded
-    private Endereco endereco;
+    // @Embedded
+    // private Endereco endereco;
 
     public Aluno(DadosCadastroAluno dados){
         this.nome = dados.nome();
@@ -44,7 +42,7 @@ public class Aluno {
         this.cpf = dados.cpf();
         this.telefone = dados.telefone();
         this.dataDeNascimento = dados.dataDeNascimento(); 
-        this.endereco = new Endereco(dados.endereco());
+        // this.endereco = new Endereco(dados.endereco());
     }
 
     public void atualizarInformacoes(DadosAtualizacaoAluno dados) {    
@@ -69,9 +67,9 @@ public class Aluno {
         if (dados.dataDeNascimento() != null) {    
             this.dataDeNascimento = dados.dataDeNascimento();
         }
-        if (dados.endereco() != null) {
-            this.endereco.atualizarInformacoes(dados.endereco());
-    }
+    //     if (dados.endereco() != null) {
+    //         this.endereco.atualizarInformacoes(dados.endereco());
+    // }
     
 }
 }

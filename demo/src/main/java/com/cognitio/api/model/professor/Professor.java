@@ -1,13 +1,13 @@
 package com.cognitio.api.model.professor;
-import com.cognitio.api.model.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.*;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity 
-@Table(name = "professor")
+@Table(name = "professores")
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +21,13 @@ public class Professor {
     private String dataDeNascimento;
     
     
-    @Embedded
-    private Endereco endereco;
+    // @Embedded
+    // private Endereco endereco;
 
     public Professor(DadosCadastroProfessor dados) {
         this.nome = dados.nome();
         this.email = dados.email();
-        this.endereco = new Endereco(dados.Endereco());
+        // this.endereco = new Endereco(dados.Endereco());
         this.telefone = dados.telefone();
         this.login = dados.login();
         this.senha = dados.senha();
@@ -42,9 +42,9 @@ public class Professor {
         if (dados.email() != null) {
             this.email = dados.email();
         }
-        if (dados.endereco() != null) {
-            this.endereco.atualizarInformacoes(dados.endereco());
-        }
+        // if (dados.endereco() != null) {
+        //     this.endereco.atualizarInformacoes(dados.endereco());
+        // }
         if (dados.telefone() != null) {
             this.telefone = dados.telefone();
         }

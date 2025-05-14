@@ -1,4 +1,4 @@
-package com.cognitio.api.model.domain.user;
+package com.cognitio.api.model.user;
 
 public enum UserRole {
     
