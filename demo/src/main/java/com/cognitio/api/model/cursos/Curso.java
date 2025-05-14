@@ -1,4 +1,7 @@
 package com.cognitio.api.model.cursos;
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 @Getter
@@ -16,7 +19,12 @@ public class Curso {
     private String descricao;
     private String categoria;
     private Double valor;
-    private String conteudo;  
+    private String conteudo; 
+    private String imagemUrl; 
+
+    @ElementCollection
+    private List<String> tags = new ArrayList<>();
+
 
 
     public Curso(DadosCadastroCurso dados) {
@@ -25,6 +33,8 @@ public class Curso {
         this.categoria = dados.categoria();
         this.valor = dados.valor();
         this.conteudo = dados.conteudo();
+        this.imagemUrl = dados.imagemUrl();
+
     }
     public void atualizarInformacoes(DadosCadastroCurso dados) {
         if (dados.nome() != null) {
@@ -41,6 +51,9 @@ public class Curso {
         }
         if (dados.conteudo() != null) {
             this.conteudo = dados.conteudo();
+        }
+        if (dados.imagemUrl() != null) {
+            this.imagemUrl = dados.imagemUrl();
         }
         
 }
